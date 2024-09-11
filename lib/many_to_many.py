@@ -16,13 +16,13 @@ class Author:
 
     def sign_contract(self, book, date, royalties):
         if not isinstance(book, Book):
-            raise TypeError("book must be an instance of Book")
+            return None
         if not isinstance(date, str):
-            raise TypeError("date must be a string")
+            return None
         if not isinstance(royalties, int):
-            raise TypeError("royalties must be an integer")
+            return None
         if royalties < 0 or royalties > 100:
-            raise ValueError("royalties must be between 0 and 100")
+            return None
         
         contract = Contract(self, book, date, royalties)
         self._contracts.append(contract)
@@ -45,15 +45,15 @@ class Contract:
     
     def __init__(self, author, book, date, royalties):
         if not isinstance(author, Author):
-            raise TypeError("author must be an instance of Author")
+            return
         if not isinstance(book, Book):
-            raise TypeError("book must be an instance of Book")
+            return
         if not isinstance(date, str):
-            raise TypeError("date must be a string")
+            return
         if not isinstance(royalties, int):
-            raise TypeError("royalties must be an integer")
+            return
         if royalties < 0 or royalties > 100:
-            raise ValueError("royalties must be between 0 and 100")
+            return
         
         self.author = author
         self.book = book
